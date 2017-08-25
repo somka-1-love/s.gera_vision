@@ -1,20 +1,40 @@
-import React from "react";
+import React from 'react';
 
-import Paper from 'material-ui/Paper';
+import Fade from 'react-fade';
 
-import { styles } from './styles';
+import './background.less';
 
+
+const firstSlide = 1;
+const lastSlide = 3;
+const changeTime = 5000;
 
 export class Home extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            slideIndex: firstSlide
+        }
+    }
+
+    timer() {
+      this.setState({slideIndex: this.state.slideIndex + 1 });
+      if(this.state.slideIndex > lastSlide) {
+        this.setState({slideIndex: firstSlide})
+      };
+    }
+
+    componentDidMount() {
+        setInterval(this.timer.bind(this), changeTime);
     }
 
     render() {
+        const img = "static/src/img/" + this.state.slideIndex + ".jpg";
+
         return (
-            <Paper style={styles.paperHome}>
-                Hello world!
-            </Paper>
+            <Fade>
+                <img className="bg" src={img} />
+            </Fade>
     );
   }
 }
