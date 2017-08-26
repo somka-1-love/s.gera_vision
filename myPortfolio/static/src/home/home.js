@@ -4,36 +4,28 @@ import Fade from 'react-fade';
 
 import './background.less';
 
-
-const firstSlide = 1;
-const lastSlide = 3;
-const changeTime = 5000;
-
 export class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            slideIndex: firstSlide
-        }
-    }
-
-    timer() {
-      this.setState({slideIndex: this.state.slideIndex + 1 });
-      if(this.state.slideIndex > lastSlide) {
-        this.setState({slideIndex: firstSlide})
-      };
-    }
-
-    componentDidMount() {
-        setInterval(this.timer.bind(this), changeTime);
     }
 
     render() {
-        const img = "static/src/img/" + this.state.slideIndex + ".jpg";
+        let current = 0,
+            slides = document.getElementsByTagName("img");
+
+        setInterval(function() {
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = 0;
+          }
+          current = (current != slides.length - 1) ? current + 1 : 0;
+          slides[current].style.opacity = 1;
+        }, 5000);
 
         return (
             <Fade>
-                <img className="bg" src={img} />
+                <img className="bg" src="static/src/img/1.jpg" />
+                <img className="bg" src="static/src/img/2.jpg" />
+                <img className="bg" src="static/src/img/3.jpg" />
             </Fade>
     );
   }

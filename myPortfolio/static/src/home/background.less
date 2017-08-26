@@ -11,7 +11,10 @@ img.bg {
   position: fixed;
   top: 0;
   left: 0;
+  transition: opacity .5s ease-in;
 }
+
+img + img { opacity: 0; }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
   img.bg {
