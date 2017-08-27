@@ -1,28 +1,40 @@
 @font-face {
-  font-family: 'Quicksand';
-  src: url('/static/src/fonts/Quicksand.ttf');
+    font-family: 'Quicksand';
+    src: url('/static/src/fonts/Quicksand.ttf');
 }
 
 #title {
-  position: relative;
-  color: white;
-  font-size: 24px;
-  font-family: 'Quicksand';
-  text-align: center;
-  z-index: 2;
+    position: relative;
+    color: white;
+    font-family: 'Quicksand';
+    text-align: center;
+    z-index: 2;
+    opacity: 0.7;
 }
 
 h1 {
-  height: 200px;
-  line-height: 600px; /* <-- this is what you must define */
-  vertical-align: middle;
+    font-size: 42px;
+    height: 200px;
+    line-height: 800px; /* <-- this is what you must define */
+    vertical-align: middle;
+}
+
+h3 {
+    font-size: 32px;
+    height: 200px;
+    line-height: 500px; /* <-- this is what you must define */
+    vertical-align: middle;
+}
+
+h3:hover {
+    opacity: 0.7;
+}
+
+#Link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    pointer-events: none;
 }

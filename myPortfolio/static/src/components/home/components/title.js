@@ -1,6 +1,8 @@
 import React from 'react';
 
-import Fade from 'react-fade';
+import { Link } from 'react-router-dom';
+
+import Paper from 'material-ui/Paper';
 
 import '../styles/title.less';
 
@@ -12,9 +14,10 @@ export class Title extends React.Component {
     render() {
 
         return (
-            <Fade id="title">
-                <h1 className="unselectable">photos by Solomia Gera</h1>
-            </Fade>
+            <div id="title">
+                <h1 className="unselectable">Solomia Gera photography</h1>
+                <h3><Link id="Link" to='/gallery'>Gallery</Link></h3>
+            </div>
     );
   }
 }
